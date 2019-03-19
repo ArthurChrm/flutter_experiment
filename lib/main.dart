@@ -15,11 +15,16 @@ class App extends StatelessWidget {
         appBar: AppBar(
           title: Text("Flutter experiment"),
         ),
-        body: Card(
-          child: Column(
-            children: <Widget>[Image.asset('assets/forest.png'), Text('This is a text')],
+        body: Column(children: <Widget>[
+          Card(
+            child: Column(
+              children: <Widget>[
+                Image.asset('assets/baguette.jpg'),
+                Text('This is a text')
+              ],
+            ),
           ),
-        ),
+        ]),
       ),
     );
   }
