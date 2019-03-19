@@ -17,7 +17,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   // <App> Means that _AppState belongs to "App"
 
-  List<String> _items = ['Item 1', 'Item 2'];
+  List<String> _items = ['Item 1'];
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,11 @@ class _AppState extends State<App> {
             margin: EdgeInsets.all(10.0),
             child: RaisedButton(
               child: Text("Add item"),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  _items.add('Other item');
+                });
+              },
             ),
           ),
           Column(
