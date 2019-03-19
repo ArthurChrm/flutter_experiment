@@ -16,6 +16,13 @@ class App extends StatelessWidget {
           title: Text("Flutter experiment"),
         ),
         body: Column(children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(10.0),
+            child: RaisedButton(
+              child: Text("Add item"),
+              onPressed: () {},
+            ),
+          ),
           Card(
             child: Column(
               children: <Widget>[
