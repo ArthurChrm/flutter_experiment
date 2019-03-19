@@ -6,7 +6,19 @@ main(List<String> args) {
 }
 
 // Main UI
-class App extends StatelessWidget {
+class App extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _AppState();
+  }
+}
+
+// The underscore keep this class from being used in other files
+class _AppState extends State<App> {
+  // <App> Means that _AppState belongs to "App"
+
+  List<String> _items = ['Item 1', 'Item 2'];
+
   @override
   Widget build(BuildContext context) {
     // "home:" means MaterialApp expect an argument named "home"
@@ -23,13 +35,17 @@ class App extends StatelessWidget {
               onPressed: () {},
             ),
           ),
-          Card(
-            child: Column(
-              children: <Widget>[
-                Image.asset('assets/baguette.jpg'),
-                Text('This is a text')
-              ],
-            ),
+          Column(
+            children: _items
+                .map((element) => Card(
+                      child: Column(
+                        children: <Widget>[
+                          Image.asset('assets/baguette.jpg'),
+                          Text(element)
+                        ],
+                      ),
+                    ))
+                .toList(),
           ),
         ]),
       ),
