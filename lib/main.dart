@@ -13,7 +13,12 @@ class App extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Flutter Example"),
+          title: Text("Flutter experiment"),
+        ),
+        body: Card(
+          child: Column(
+            children: <Widget>[Image.asset('assets/forest.png'), Text('This is a text')],
+          ),
         ),
       ),
     );
