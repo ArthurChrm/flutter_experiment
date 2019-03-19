@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 
-main(List<String> args) {}
+main(List<String> args) {
+  // runApp wants a Widget so we give the one created by the instanciation of the "App" class
+  runApp(App());
+}
 
-// Interface's class
+// Main UI
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
-    return null;
+    // "home:" means MaterialApp expect an argument named "home"
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Flutter Example"),
+        ),
+      ),
+    );
   }
 }
