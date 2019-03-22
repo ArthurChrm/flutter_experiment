@@ -13,6 +13,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     // "home:" means MaterialApp expect an argument named "home"
     return MaterialApp(
+      theme:ThemeData(
+        primarySwatch: Colors.deepOrange
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: Text("Flutter experiment"),
