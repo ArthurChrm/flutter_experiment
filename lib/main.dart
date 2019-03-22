@@ -14,7 +14,8 @@ class App extends StatelessWidget {
     // "home:" means MaterialApp expect an argument named "home"
     return MaterialApp(
       theme:ThemeData(
-        primarySwatch: Colors.deepOrange
+        primarySwatch: Colors.deepOrange,
+        brightness: Brightness.dark
       ),
       home: Scaffold(
         appBar: AppBar(
