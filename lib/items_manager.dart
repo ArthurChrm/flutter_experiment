@@ -14,7 +14,7 @@ class _ItemsManagerState extends State<ItemsManager> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         Container(
           margin: EdgeInsets.all(10.0),

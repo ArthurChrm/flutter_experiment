@@ -15,7 +15,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme:ThemeData(
         primarySwatch: Colors.deepOrange,
-        brightness: Brightness.dark
+        brightness: Brightness.light
       ),
       home: Scaffold(
         appBar: AppBar(
