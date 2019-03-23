@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './pages/item.dart';
 
 class Items extends StatelessWidget {
-  final List<String> items;
+  final List<Map<String, String>> items;
 
   // Constructor expects to receive a variable called "items", it will then initialize the class variable with that argument
   Items(this.items);
@@ -12,8 +12,8 @@ class Items extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset('assets/baguette.jpg'),
-          Text(items[index]),
+          Image.asset(items[index]['image']),
+          Text(items[index]['title']),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -23,7 +23,8 @@ class Items extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (BuildContext context) {
-                      return ItemPage();
+                      return ItemPage(
+                          items[index]['title'], items[index]['image']);
                     }),
                   );
                 },

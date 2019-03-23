@@ -4,7 +4,7 @@ import './item_control.dart';
 import './items.dart';
 
 class ItemsManager extends StatefulWidget {
-  final String startingItem;
+  final Map<String, String> startingItem;
   ItemsManager({this.startingItem});
 
   @override
@@ -16,7 +16,7 @@ class ItemsManager extends StatefulWidget {
 class _ItemsManagerState extends State<ItemsManager> {
   // _items could be final because we never assign a new List to _items, we only add items to the existing List.
   // Const (before the []) on the other hand would be problematic
-  List<String> _items = [];
+  List<Map<String, String>> _items = [];
 
   @override
   void initState() {
@@ -39,7 +39,7 @@ class _ItemsManagerState extends State<ItemsManager> {
     ]);
   }
 
-  void _addItem(String item) {
+  void _addItem(Map<String, String> item) {
     setState(() {
       _items.add(item);
     });

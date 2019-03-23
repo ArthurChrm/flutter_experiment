@@ -10,7 +10,7 @@ class ItemControl extends StatelessWidget {
     return RaisedButton(
       child: Text("Add item"),
       onPressed: () {
-        addItem('Item');
+        addItem({'title': 'Chocolate', 'image': 'assets/baguette.jpg'});
       },
     );
   }
