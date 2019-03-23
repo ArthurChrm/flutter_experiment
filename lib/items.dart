@@ -20,9 +20,13 @@ class Items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: _buildItem,
-      itemCount: items.length,
-    );
+    return items.length > 0
+        ? ListView.builder(
+            itemBuilder: _buildItem,
+            itemCount: items.length,
+          )
+        : Center(
+            child: Text('No items found.'),
+          );
   }
 }
