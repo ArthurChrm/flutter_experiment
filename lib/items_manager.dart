@@ -34,7 +34,7 @@ class _ItemsManagerState extends State<ItemsManager> {
         child: ItemControl(_addItem),
       ),
       Expanded(
-        child: Items(_items),
+        child: Items(_items, deleteItem: _deleteItem),
       ),
     ]);
   }
@@ -42,6 +42,12 @@ class _ItemsManagerState extends State<ItemsManager> {
   void _addItem(Map<String, String> item) {
     setState(() {
       _items.add(item);
+    });
+  }
+
+  void _deleteItem(int index){
+    setState(() {
+     _items.removeAt(index); 
     });
   }
 }

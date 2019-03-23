@@ -3,9 +3,10 @@ import './pages/item.dart';
 
 class Items extends StatelessWidget {
   final List<Map<String, String>> items;
+  final Function deleteItem;
 
   // Constructor expects to receive a variable called "items", it will then initialize the class variable with that argument
-  Items(this.items);
+  Items(this.items, {this.deleteItem});
   // I could also write Items(items){this.items=items;}
 
   Widget _buildItem(BuildContext context, int index) {
@@ -20,13 +21,17 @@ class Items extends StatelessWidget {
               FlatButton(
                 child: Text('Details'),
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.push<bool>(
                     context,
                     MaterialPageRoute(builder: (BuildContext context) {
                       return ItemPage(
                           items[index]['title'], items[index]['image']);
                     }),
-                  );
+                  ).then((bool value) {
+                    if (value) {
+                      deleteItem(index);
+                    }
+                  });
                 },
               )
             ],

@@ -21,9 +21,9 @@ class ItemPage extends StatelessWidget {
                 child: Text(title),
               ),
               RaisedButton(
-                child: Text("Back"),
+                child: Text("Delete"),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.pop(context, true);
                 },
               )
             ],
