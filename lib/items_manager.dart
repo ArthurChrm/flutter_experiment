@@ -17,13 +17,17 @@ class _ItemsManagerState extends State<ItemsManager> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: [
         Container(
           margin: EdgeInsets.all(10.0),
           child: ItemControl(_addItem),
         ),
-        Items(_items)
+        Expanded(
+          child: ListView(
+            children: <Widget>[Items(_items)],
+          ),
+        )
       ],
     );
   }
