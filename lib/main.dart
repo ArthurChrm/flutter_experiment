@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './pages/home.dart';
+import './pages/auth.dart';
 
 main(List<String> args) {
   // runApp wants a Widget so we give the one created by the instanciation of the "App" class
@@ -13,10 +13,11 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     // "home:" means MaterialApp expect an argument named "home"
     return MaterialApp(
-        theme: ThemeData(
-          primarySwatch: Colors.deepOrange,
-          brightness: Brightness.light,
-        ),
-        home: HomePage());
+      theme: ThemeData(
+        primarySwatch: Colors.deepOrange,
+        brightness: Brightness.light,
+      ),
+      home: AuthPage(),
+    );
   }
 }

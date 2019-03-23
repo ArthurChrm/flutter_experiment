@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import './pages/item.dart';
 
 class Items extends StatelessWidget {
@@ -8,6 +9,18 @@ class Items extends StatelessWidget {
   // Constructor expects to receive a variable called "items", it will then initialize the class variable with that argument
   Items(this.items, {this.deleteItem});
   // I could also write Items(items){this.items=items;}
+
+  @override
+  Widget build(BuildContext context) {
+    return items.length > 0
+        ? ListView.builder(
+            itemBuilder: _buildItem,
+            itemCount: items.length,
+          )
+        : Center(
+            child: Text('No items found.'),
+          );
+  }
 
   Widget _buildItem(BuildContext context, int index) {
     return Card(
@@ -39,17 +52,5 @@ class Items extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return items.length > 0
-        ? ListView.builder(
-            itemBuilder: _buildItem,
-            itemCount: items.length,
-          )
-        : Center(
-            child: Text('No items found.'),
-          );
   }
 }
