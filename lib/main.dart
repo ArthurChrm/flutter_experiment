@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 import './items_manager.dart';
 
 main(List<String> args) {
-  debugPaintSizeEnabled = true;
   // runApp wants a Widget so we give the one created by the instanciation of the "App" class
   runApp(App());
 }

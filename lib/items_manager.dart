@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './items.dart';
 import './item_control.dart';
+import './items.dart';
 
 class ItemsManager extends StatefulWidget {
   @override
