@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './items.dart';
+import './item_control.dart';
 
 class ItemsManager extends StatefulWidget {
   @override
@@ -18,17 +19,16 @@ class _ItemsManagerState extends State<ItemsManager> {
       children: [
         Container(
           margin: EdgeInsets.all(10.0),
-          child: RaisedButton(
-            child: Text("Add item"),
-            onPressed: () {
-              setState(() {
-                _items.add('Other item');
-              });
-            },
-          ),
+          child: ItemControl(_addItem),
         ),
         Items(_items)
       ],
     );
+  }
+
+  void _addItem(String item) {
+    setState(() {
+      _items.add(item);
+    });
   }
 }
