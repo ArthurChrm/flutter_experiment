@@ -7,21 +7,22 @@ class Items extends StatelessWidget {
   Items(this.items);
   // I could also write Items(items){this.items=items;}
 
+  Widget _buildItem(BuildContext context, int index) {
+    return Card(
+      child: Column(
+        children: <Widget>[
+          Image.asset('assets/baguette.jpg'),
+          Text(items[index])
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: items
-          .map(
-            (element) => Card(
-                  child: Column(
-                    children: <Widget>[
-                      Image.asset('assets/baguette.jpg'),
-                      Text(element)
-                    ],
-                  ),
-                ),
-          )
-          .toList(),
+    return ListView.builder(
+      itemBuilder: _buildItem,
+      itemCount: items.length,
     );
   }
 }

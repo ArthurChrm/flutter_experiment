@@ -17,19 +17,15 @@ class _ItemsManagerState extends State<ItemsManager> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: EdgeInsets.all(10.0),
-          child: ItemControl(_addItem),
-        ),
-        Expanded(
-          child: ListView(
-            children: <Widget>[Items(_items)],
-          ),
-        )
-      ],
-    );
+    return Column(children: [
+      Container(
+        margin: EdgeInsets.all(10.0),
+        child: ItemControl(_addItem),
+      ),
+      Expanded(
+        child: Items(_items),
+      ),
+    ]);
   }
 
   void _addItem(String item) {
