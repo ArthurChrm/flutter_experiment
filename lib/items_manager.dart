@@ -11,6 +11,8 @@ class ItemsManager extends StatefulWidget {
 }
 
 class _ItemsManagerState extends State<ItemsManager> {
+  // _items could be final because we never assign a new List to _items, we only add items to the existing List.
+  // Const (before the []) on the other hand would be problematic
   List<String> _items = ['Item 1'];
 
   @override
