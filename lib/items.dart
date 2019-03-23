@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './pages/item.dart';
 
 class Items extends StatelessWidget {
   final List<String> items;
@@ -12,7 +13,23 @@ class Items extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset('assets/baguette.jpg'),
-          Text(items[index])
+          Text(items[index]),
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(
+                child: Text('Details'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (BuildContext context) {
+                      return ItemPage();
+                    }),
+                  );
+                },
+              )
+            ],
+          )
         ],
       ),
     );
