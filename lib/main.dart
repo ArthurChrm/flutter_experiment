@@ -37,31 +37,37 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     // "home:" means MaterialApp expect an argument named "home"
     return MaterialApp(
-        theme: ThemeData(
-          primarySwatch: Colors.deepOrange,
-          brightness: Brightness.light,
-        ),
-        //home: AuthPage(),
-        routes: {
-          // The '/' key is used for the home property
-          // We can't use this with the home argument because they do the exact same thing
-          '/': (BuildContext context) =>
-              ItemsPages(_items, _addItem, _deleteItem),
-          '/admin': (BuildContext context) => ItemAdminPage(),
-        },
-        onGenerateRoute: (RouteSettings settings) {
-          final List<String> pathElements = settings.name.split('/');
-          if (pathElements[0] != '') {
-            return null;
-          }
-          if (pathElements[1] == 'item') {
-            final int index = int.parse(pathElements[2]);
-            return MaterialPageRoute<bool>(
-              builder: (BuildContext context) =>
-                  ItemPage(_items[index]['title'], _items[index]['image']),
-            );
-          }
+      theme: ThemeData(
+        primarySwatch: Colors.deepOrange,
+        brightness: Brightness.light,
+      ),
+      //home: AuthPage(),
+      routes: {
+        // The '/' key is used for the home property
+        // We can't use this with the home argument because they do the exact same thing
+        '/': (BuildContext context) =>
+            ItemsPages(_items, _addItem, _deleteItem),
+        '/admin': (BuildContext context) => ItemAdminPage(),
+      },
+      onGenerateRoute: (RouteSettings settings) {
+        final List<String> pathElements = settings.name.split('/');
+        if (pathElements[0] != '') {
           return null;
-        });
+        }
+        if (pathElements[1] == 'item') {
+          final int index = int.parse(pathElements[2]);
+          return MaterialPageRoute<bool>(
+            builder: (BuildContext context) =>
+                ItemPage(_items[index]['title'], _items[index]['image']),
+          );
+        }
+        return null;
+      },
+      onUnknownRoute: (RouteSettings settings) {
+        return MaterialPageRoute(
+            builder: (BuildContext context) =>
+                ItemsPages(_items, _addItem, _deleteItem));
+      },
+    );
   }
 }
