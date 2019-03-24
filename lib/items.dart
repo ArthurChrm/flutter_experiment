@@ -34,16 +34,10 @@ class Items extends StatelessWidget {
               FlatButton(
                 child: Text('Details'),
                 onPressed: () {
-                  Navigator.push<bool>(
-                    context,
-                    MaterialPageRoute(builder: (BuildContext context) {
-                      return ItemPage(
-                          items[index]['title'], items[index]['image']);
-                    }),
-                  ).then((bool value) {
-                    if (value) {
-                      deleteItem(index);
-                    }
+                  Navigator.pushNamed<bool>(
+                          context, '/item/' + index.toString())
+                      .then((bool value) {
+                    if (value) deleteItem(index);
                   });
                 },
               )

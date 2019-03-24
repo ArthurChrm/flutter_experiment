@@ -35,12 +35,7 @@ class ItemAdminPage extends StatelessWidget {
               ListTile(
                 title: Text('All items'),
                 onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (BuildContext context) {
-                      return ItemsPages();
-                    }),
-                  );
+                  Navigator.pushReplacementNamed(context, '/');
                 },
               ),
             ],
