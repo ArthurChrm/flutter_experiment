@@ -14,32 +14,39 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        TextField(
-          onChanged: (String value) {
-            setState(() {
-              contentText = value;
-            });
-          },
-        ),
-        TextField(
-          keyboardType: TextInputType.multiline,
-          onChanged: (String value) {
-            setState(() {
-              description = value;
-            });
-          },
-        ),
-        TextField(
-          keyboardType: TextInputType.number,
-          onChanged: (String value) {
-            setState(() {
-              price = double.parse(value);
-            });
-          },
-        ),
-      ],
+    return Container(
+      margin: EdgeInsets.all(10.0),
+      child: Column(
+        children: <Widget>[
+          TextField(
+            decoration: InputDecoration(labelText: 'Item title'),
+            onChanged: (String value) {
+              setState(() {
+                contentText = value;
+              });
+            },
+          ),
+          TextField(
+            maxLines: 4,
+            decoration: InputDecoration(labelText: 'Description'),
+            keyboardType: TextInputType.multiline,
+            onChanged: (String value) {
+              setState(() {
+                description = value;
+              });
+            },
+          ),
+          TextField(
+            decoration: InputDecoration(labelText: 'Price'),
+            keyboardType: TextInputType.number,
+            onChanged: (String value) {
+              setState(() {
+                price = double.parse(value);
+              });
+            },
+          ),
+        ],
+      ),
     );
   }
 }
