@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './pages/auth.dart';
 import './pages/item_admin.dart';
+import './pages/items.dart';
 
 main(List<String> args) {
   // runApp wants a Widget so we give the one created by the instanciation of the "App" class
@@ -18,11 +19,12 @@ class App extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
         brightness: Brightness.light,
       ),
-      home: AuthPage(),
+      //home: AuthPage(),
       routes: {
-        '/admin': (BuildContext context) {
-          return ItemAdminPage();
-        }
+        // The '/' key is used for the home property
+        // We can't use this with the home argument because they do the exact same thing
+        '/': (BuildContext context) => ItemsPages(),
+        '/admin': (BuildContext context) => ItemAdminPage(),
       },
     );
   }
