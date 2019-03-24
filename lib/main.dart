@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './pages/auth.dart';
+import './pages/item_admin.dart';
 
 main(List<String> args) {
   // runApp wants a Widget so we give the one created by the instanciation of the "App" class
@@ -18,6 +19,11 @@ class App extends StatelessWidget {
         brightness: Brightness.light,
       ),
       home: AuthPage(),
+      routes: {
+        '/admin': (BuildContext context) {
+          return ItemAdminPage();
+        }
+      },
     );
   }
 }
