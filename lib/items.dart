@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import './pages/item.dart';
-
 class Items extends StatelessWidget {
   final List<Map<String, String>> items;
   final Function deleteItem;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import './items.dart';
 import './item_create.dart';
 import './item_list.dart';
 

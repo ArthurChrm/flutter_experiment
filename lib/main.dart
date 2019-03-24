@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import './pages/auth.dart';
+import './pages/item.dart';
 import './pages/item_admin.dart';
 import './pages/items.dart';
-import './pages/item.dart';
 
 main(List<String> args) {
   // runApp wants a Widget so we give the one created by the instanciation of the "App" class

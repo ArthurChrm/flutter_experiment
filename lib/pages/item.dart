@@ -5,6 +5,30 @@ class ItemPage extends StatelessWidget {
   final String imageURL;
   ItemPage(this.title, this.imageURL);
 
+  _showWarningDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Are you sure ?'),
+            content: Text('This action cannot be undone !'),
+            actions: <Widget>[
+              FlatButton(
+                  child: Text('Discard'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
+              FlatButton(
+                  child: Text('Continue'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pop(context, true);
+                  }),
+            ],
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -27,9 +51,7 @@ class ItemPage extends StatelessWidget {
                   ),
                   RaisedButton(
                     child: Text("Delete"),
-                    onPressed: () {
-                      Navigator.pop(context, true);
-                    },
+                    onPressed: () => _showWarningDialog(context),
                   )
                 ],
               ),
