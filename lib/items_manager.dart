@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
 
-import './item_control.dart';
 import './items.dart';
 
 class ItemsManager extends StatelessWidget {
-  final List<Map<String, String>> items;
-  final Function deleteItem;
-  final Function addItem;
+  final List<Map<String, dynamic>> items;
 
-  ItemsManager(this.items, this.deleteItem, this.addItem);
+  ItemsManager(this.items);
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Container(
-        margin: EdgeInsets.all(10.0),
-        child: ItemControl(addItem),
-      ),
       Expanded(
-        child: Items(items, deleteItem: deleteItem),
+        child: Items(items),
       ),
     ]);
   }

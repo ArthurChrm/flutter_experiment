@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import '../items_manager.dart';
 
 class ItemsPages extends StatelessWidget {
-  final List<Map<String, String>> items;
-  final Function addItem;
-  final Function deleteItem;
+  final List<Map<String, dynamic>> items;
 
-  ItemsPages(this.items, this.addItem, this.deleteItem);
+  ItemsPages(this.items);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +29,7 @@ class ItemsPages extends StatelessWidget {
       appBar: AppBar(
         title: Text("Flutter experiment"),
       ),
-      body: ItemsManager(items, deleteItem, addItem),
+      body: ItemsManager(items),
     );
   }
 }

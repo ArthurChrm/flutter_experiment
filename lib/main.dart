@@ -18,9 +18,9 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  List<Map<String, String>> _items = [];
+  List<Map<String, dynamic>> _items = [];
 
-  void _addItem(Map<String, String> item) {
+  void _addItem(Map<String, dynamic> item) {
     setState(() {
       _items.add(item);
     });
@@ -44,9 +44,9 @@ class _AppState extends State<App> {
       routes: {
         // The '/' key is used for the home property
         // We can't use this with the home argument because they do the exact same thing
-        '/': (BuildContext context) =>
-            ItemsPages(_items, _addItem, _deleteItem),
-        '/admin': (BuildContext context) => ItemAdminPage(),
+        '/': (BuildContext context) => ItemsPages(_items),
+        '/admin': (BuildContext context) =>
+            ItemAdminPage(_addItem, _deleteItem),
       },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');
@@ -64,8 +64,7 @@ class _AppState extends State<App> {
       },
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute(
-            builder: (BuildContext context) =>
-                ItemsPages(_items, _addItem, _deleteItem));
+            builder: (BuildContext context) => ItemsPages(_items));
       },
     );
   }

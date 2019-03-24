@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Items extends StatelessWidget {
-  final List<Map<String, String>> items;
-  final Function deleteItem;
+  final List<Map<String, dynamic>> items;
 
   // Constructor expects to receive a variable called "items", it will then initialize the class variable with that argument
-  Items(this.items, {this.deleteItem});
+  Items(this.items);
   // I could also write Items(items){this.items=items;}
 
   @override
@@ -33,10 +32,7 @@ class Items extends StatelessWidget {
                 child: Text('Details'),
                 onPressed: () {
                   Navigator.pushNamed<bool>(
-                          context, '/item/' + index.toString())
-                      .then((bool value) {
-                    if (value) deleteItem(index);
-                  });
+                      context, '/item/' + index.toString());
                 },
               )
             ],

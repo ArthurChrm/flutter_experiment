@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ItemCreatePage extends StatefulWidget {
+  final Function addItem;
+
+  ItemCreatePage(this.addItem);
+
   @override
   State<StatefulWidget> createState() {
     return _ItemCreatePageState();
@@ -8,7 +12,7 @@ class ItemCreatePage extends StatefulWidget {
 }
 
 class _ItemCreatePageState extends State<ItemCreatePage> {
-  String contentText = '';
+  String title = '';
   String description = '';
   double price = 0.0;
 
@@ -16,13 +20,13 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(10.0),
-      child: Column(
+      child: ListView(
         children: <Widget>[
           TextField(
             decoration: InputDecoration(labelText: 'Item title'),
             onChanged: (String value) {
               setState(() {
-                contentText = value;
+                title = value;
               });
             },
           ),
@@ -43,6 +47,18 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
               setState(() {
                 price = double.parse(value);
               });
+            },
+          ),
+          RaisedButton(
+            child: Text('Save'),
+            onPressed: () {
+              final Map<String, dynamic> item = {
+                'title': title,
+                'description': description,
+                'price': price,
+                'image': 'assets/baguette.jpg'
+              };
+              widget.addItem(item);
             },
           ),
         ],
