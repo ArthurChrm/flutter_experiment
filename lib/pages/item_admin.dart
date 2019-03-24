@@ -13,9 +13,11 @@ class ItemAdminPage extends StatelessWidget {
             bottom: TabBar(
               tabs: <Widget>[
                 Tab(
+                  icon: Icon(Icons.create),
                   text: 'Create item',
                 ),
                 Tab(
+                  icon: Icon(Icons.list),
                   text: 'My items',
                 )
               ],
