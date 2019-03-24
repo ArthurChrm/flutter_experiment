@@ -5,34 +5,46 @@ import './items.dart';
 class ItemAdminPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Item Admin'),
-      ),
-      drawer: Drawer(
-        child: Column(
-          children: <Widget>[
-            AppBar(
-              automaticallyImplyLeading: false,
-              title: Text('Choose'),
+    return DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('Manage items'),
+            bottom: TabBar(
+              tabs: <Widget>[
+                Tab(
+                  text: 'Create item',
+                ),
+                Tab(
+                  text: 'My items',
+                )
+              ],
             ),
-            ListTile(
-              title: Text('Items presentation'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (BuildContext context) {
-                    return ItemsPages();
-                  }),
-                );
-              },
+          ),
+          drawer: Drawer(
+            child: Column(
+              children: <Widget>[
+                AppBar(
+                  automaticallyImplyLeading: false,
+                  title: Text('Choose'),
+                ),
+                ListTile(
+                  title: Text('All items'),
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (BuildContext context) {
+                        return ItemsPages();
+                      }),
+                    );
+                  },
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
-      body: Center(
-        child: Text('You are on the item admin page'),
-      ),
-    );
+          ),
+          body: Center(
+            child: Text('You are on the item admin page'),
+          ),
+        ));
   }
 }
