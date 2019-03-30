@@ -25,12 +25,21 @@ class Items extends StatelessWidget {
         children: <Widget>[
           Image.asset(items[index]['image']),
           SizedBox(height: 10.0),
-          Text(
-            items[index]['title'],
-            style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Oswald"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                items[index]['title'],
+                style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Oswald"),
+              ),
+              SizedBox(width: 8.0),
+              Text(
+                items[index]['price'].toString(),
+              )
+            ],
           ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
