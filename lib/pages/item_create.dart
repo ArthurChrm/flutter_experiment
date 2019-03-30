@@ -49,7 +49,9 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
               });
             },
           ),
-          SizedBox(height: 10.0,),
+          SizedBox(
+            height: 10.0,
+          ),
           RaisedButton(
             child: Text('Save'),
             onPressed: () {
@@ -60,7 +62,7 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
                 'image': 'assets/baguette.jpg'
               };
               widget.addItem(item);
-              Navigator.pushReplacementNamed(context, '/');
+              Navigator.pushReplacementNamed(context, '/items');
             },
           ),
         ],

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import './pages/item.dart';
 import './pages/item_admin.dart';
 import './pages/items.dart';
+import './pages/auth.dart';
 
 main(List<String> args) {
   // runApp wants a Widget so we give the one created by the instanciation of the "App" class
@@ -44,7 +45,8 @@ class _AppState extends State<App> {
       routes: {
         // The '/' key is used for the home property
         // We can't use this with the home argument because they do the exact same thing
-        '/': (BuildContext context) => ItemsPages(_items),
+        '/': (BuildContext context) => AuthPage(),
+        '/items': (BuildContext context) => ItemsPages(_items),
         '/admin': (BuildContext context) =>
             ItemAdminPage(_addItem, _deleteItem),
       },
