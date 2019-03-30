@@ -12,9 +12,9 @@ class ItemCreatePage extends StatefulWidget {
 }
 
 class _ItemCreatePageState extends State<ItemCreatePage> {
-  String title = '';
-  String description = '';
-  double price = 0.0;
+  String _title = '';
+  String _description = '';
+  double _price = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
             decoration: InputDecoration(labelText: 'Item title'),
             onChanged: (String value) {
               setState(() {
-                title = value;
+                _title = value;
               });
             },
           ),
@@ -36,7 +36,7 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
             keyboardType: TextInputType.multiline,
             onChanged: (String value) {
               setState(() {
-                description = value;
+                _description = value;
               });
             },
           ),
@@ -45,7 +45,7 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
             keyboardType: TextInputType.number,
             onChanged: (String value) {
               setState(() {
-                price = double.parse(value);
+                _price = double.parse(value);
               });
             },
           ),
@@ -56,9 +56,9 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
             child: Text('Save'),
             onPressed: () {
               final Map<String, dynamic> item = {
-                'title': title,
-                'description': description,
-                'price': price,
+                'title': _title,
+                'description': _description,
+                'price': _price,
                 'image': 'assets/baguette.jpg'
               };
               widget.addItem(item);
