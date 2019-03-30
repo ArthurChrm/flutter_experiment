@@ -24,7 +24,8 @@ class Items extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset(items[index]['image']),
-          Text(items[index]['title']),
+          SizedBox(height: 10.0),
+          Text(items[index]['title'], style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
