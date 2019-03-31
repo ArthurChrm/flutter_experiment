@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../items_manager.dart';
+import '../widgets/items/items.dart';
 
 class ItemsPages extends StatelessWidget {
   final List<Map<String, dynamic>> items;
@@ -37,7 +37,7 @@ class ItemsPages extends StatelessWidget {
           ),
         ],
       ),
-      body: ItemsManager(items),
+      body: Items(items),
     );
   }
 }
