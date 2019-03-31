@@ -41,9 +41,12 @@ class Items extends StatelessWidget {
                   horizontal: 6.0,
                   vertical: 2.5,
                 ),
-                decoration: BoxDecoration(color: Theme.of(context).accentColor, borderRadius: BorderRadius.circular(5.0)),
+                decoration: BoxDecoration(
+                    color: Theme.of(context).accentColor,
+                    borderRadius: BorderRadius.circular(5.0)),
                 child: Text(
-                  items[index]['price'].toString(),
+                  items[index]['price'].toString()+"€",
+                  style: TextStyle(color: Colors.white),
                 ),
               )
             ],
