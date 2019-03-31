@@ -24,32 +24,34 @@ class Items extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset(items[index]['image']),
-          SizedBox(height: 10.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                items[index]['title'],
-                style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Oswald"),
-              ),
-              SizedBox(width: 8.0),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 6.0,
-                  vertical: 2.5,
+          Container(
+            padding: EdgeInsets.only(top: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  items[index]['title'],
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Oswald"),
                 ),
-                decoration: BoxDecoration(
-                    color: Theme.of(context).accentColor,
-                    borderRadius: BorderRadius.circular(5.0)),
-                child: Text(
-                  items[index]['price'].toString() + "€",
-                  style: TextStyle(color: Colors.white),
+                SizedBox(width: 8.0),
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 6.0,
+                    vertical: 2.5,
+                  ),
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).accentColor,
+                      borderRadius: BorderRadius.circular(5.0)),
+                  child: Text(
+                    items[index]['price'].toString() + "€",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.5),
