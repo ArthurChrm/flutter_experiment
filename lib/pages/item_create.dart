@@ -12,9 +12,12 @@ class ItemCreatePage extends StatefulWidget {
 }
 
 class _ItemCreatePageState extends State<ItemCreatePage> {
-  String _title = '';
-  String _description = '';
-  double _price = 0.0;
+  final Map<String, dynamic> _formData = {
+    'title': null,
+    'description': null,
+    'price': null,
+    'image': 'assets/baguette.jpg'
+  };
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Widget _buildTitleTextField() {
@@ -26,7 +29,7 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
         return null;
       },
       onSaved: (String value) {
-        _title = value;
+        _formData['title'] = value;
       },
     );
   }
@@ -42,7 +45,7 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
         return null;
       },
       onSaved: (String value) {
-        _description = value;
+        _formData['description'] = value;
       },
     );
   }
@@ -58,7 +61,7 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
         return null;
       },
       onSaved: (String value) {
-        _price = double.parse(value);
+        _formData['price'] = double.parse(value);
       },
     );
   }
@@ -68,10 +71,10 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
 
     _formKey.currentState.save();
     final Map<String, dynamic> item = {
-      'title': _title,
-      'description': _description,
-      'price': _price,
-      'image': 'assets/baguette.jpg'
+      'title': _formData['title'],
+      'description': _formData['description'],
+      'price': _formData['price'],
+      'image': _formData['image']
     };
     widget.addItem(item);
     Navigator.pushReplacementNamed(context, '/items');
