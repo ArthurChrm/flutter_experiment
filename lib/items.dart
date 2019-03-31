@@ -64,12 +64,16 @@ class Items extends StatelessWidget {
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlatButton(
-                child: Text('Details'),
+              IconButton(
+                icon: Icon(Icons.info),
                 onPressed: () {
                   Navigator.pushNamed<bool>(
                       context, '/item/' + index.toString());
                 },
+              ),
+              IconButton(
+                icon: Icon(Icons.favorite_border),
+                onPressed: () {},
               )
             ],
           )
