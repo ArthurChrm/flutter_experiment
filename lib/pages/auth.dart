@@ -59,7 +59,7 @@ class _AuthPageState extends State<AuthPage> {
     );
   }
 
-  _submitForm() {
+  void _submitForm() {
     print(_email);
     print(_password);
     Navigator.pushReplacementNamed(context, '/items');
@@ -79,21 +79,25 @@ class _AuthPageState extends State<AuthPage> {
           padding: EdgeInsets.all(10.0),
           child: Center(
             child: SingleChildScrollView(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.8,
                 child: Column(
-              children: <Widget>[
-                _buildEmailTextField(),
-                SizedBox(
-                  height: 10.0,
+                  children: <Widget>[
+                    _buildEmailTextField(),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    _buildPasswordField(),
+                    _buildAcceptTermsSwitchTile(),
+                    SizedBox(height: 10.0),
+                    RaisedButton(
+                      child: Text("Log in"),
+                      onPressed: _submitForm,
+                    ),
+                  ],
                 ),
-                _buildPasswordField(),
-                _buildAcceptTermsSwitchTile(),
-                SizedBox(height: 10.0),
-                RaisedButton(
-                  child: Text("Log in"),
-                  onPressed: _submitForm,
-                ),
-              ],
-            )),
+              ),
+            ),
           ),
         ),
       ),
