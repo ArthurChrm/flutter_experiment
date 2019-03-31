@@ -66,6 +66,7 @@ class Items extends StatelessWidget {
             children: <Widget>[
               IconButton(
                 icon: Icon(Icons.info),
+                color: Theme.of(context).primaryColor,
                 onPressed: () {
                   Navigator.pushNamed<bool>(
                       context, '/item/' + index.toString());
@@ -73,6 +74,7 @@ class Items extends StatelessWidget {
               ),
               IconButton(
                 icon: Icon(Icons.favorite_border),
+                color: Colors.red,
                 onPressed: () {},
               )
             ],
