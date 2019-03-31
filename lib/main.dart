@@ -40,6 +40,8 @@ class _AppState extends State<App> {
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
         brightness: Brightness.light,
+        accentColor: Colors.blue,
+        buttonColor: Colors.deepPurple
       ),
       //home: AuthPage(),
       routes: {
