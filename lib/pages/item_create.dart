@@ -21,7 +21,8 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Item title'),
       validator: (String value) {
-        if (value.isEmpty) return "Title is required";
+        if (value.isEmpty || value.length < 5)
+          return "Title is required and should be 5+ characters long";
         return null;
       },
       onSaved: (String value) {
@@ -37,6 +38,11 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
       maxLines: 4,
       decoration: InputDecoration(labelText: 'Description'),
       keyboardType: TextInputType.multiline,
+      validator: (String value) {
+        if (value.isEmpty || value.length < 10)
+          return "Description is required and should be 10+ characters long";
+        return null;
+      },
       onSaved: (String value) {
         setState(() {
           _description = value;
@@ -49,6 +55,12 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Price'),
       keyboardType: TextInputType.number,
+      validator: (String value) {
+        if (value.isEmpty ||
+            !RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$').hasMatch(value))
+          return "Price is required and should be a number";
+        return null;
+      },
       onSaved: (String value) {
         setState(() {
           _price = double.parse(value);
