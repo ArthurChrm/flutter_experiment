@@ -3,31 +3,10 @@ import 'package:flutter/material.dart';
 class ItemPage extends StatelessWidget {
   final String title;
   final String imageURL;
-  ItemPage(this.title, this.imageURL);
+  final double price;
+  final String description;
 
-  _showWarningDialog(BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Are you sure ?'),
-            content: Text('This action cannot be undone !'),
-            actions: <Widget>[
-              FlatButton(
-                  child: Text('Discard'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  }),
-              FlatButton(
-                  child: Text('Continue'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                    Navigator.pop(context, true);
-                  }),
-            ],
-          );
-        });
-  }
+  ItemPage(this.title, this.imageURL, this.price, this.description);
 
   @override
   Widget build(BuildContext context) {
@@ -47,12 +26,41 @@ class ItemPage extends StatelessWidget {
                   Image.asset(imageURL),
                   Container(
                     padding: EdgeInsets.all(10.0),
-                    child: Text(title),
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                          fontSize: 26.0,
+                          fontFamily: 'Oswald',
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  RaisedButton(
-                    child: Text("Delete"),
-                    onPressed: () => _showWarningDialog(context),
-                  )
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Paris, France",
+                        style:
+                            TextStyle(fontFamily: 'Oswald', color: Colors.grey),
+                      ),
+                      Container(
+                        child: Text(
+                          "|",
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      ),
+                      Text(price.toString() + "€",
+                          style: TextStyle(
+                              fontFamily: 'Oswald', color: Colors.grey))
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10.0),
+                    child: Text(
+                      description,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ],
               ),
             )));
