@@ -15,11 +15,12 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
   String _title = '';
   String _description = '';
   double _price = 0.0;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Widget _buildTitleTextField() {
-    return TextField(
+    return TextFormField(
       decoration: InputDecoration(labelText: 'Item title'),
-      onChanged: (String value) {
+      onSaved: (String value) {
         setState(() {
           _title = value;
         });
@@ -28,11 +29,11 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
   }
 
   Widget _buildDescriptionTextField() {
-    return TextField(
+    return TextFormField(
       maxLines: 4,
       decoration: InputDecoration(labelText: 'Description'),
       keyboardType: TextInputType.multiline,
-      onChanged: (String value) {
+      onSaved: (String value) {
         setState(() {
           _description = value;
         });
@@ -41,10 +42,10 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
   }
 
   Widget _buildPriceTextField() {
-    return TextField(
+    return TextFormField(
       decoration: InputDecoration(labelText: 'Price'),
       keyboardType: TextInputType.number,
-      onChanged: (String value) {
+      onSaved: (String value) {
         setState(() {
           _price = double.parse(value);
         });
@@ -53,6 +54,7 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
   }
 
   void _submitForm() {
+    _formKey.currentState.save();
     final Map<String, dynamic> item = {
       'title': _title,
       'description': _description,
@@ -71,24 +73,24 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
 
     return Container(
       margin: EdgeInsets.all(10.0),
-      child: ListView(
-        padding: EdgeInsets.symmetric(horizontal: targetPadding / 2),
-        children: <Widget>[
-          _buildTitleTextField(),
-          _buildDescriptionTextField(),
-          _buildPriceTextField(),
-          SizedBox(
-            height: 10.0,
-          ),
-          GestureDetector(
-            child: Container(
-              color: Colors.green,
-              padding: EdgeInsets.all(5.0),
-              child: Text("My button"),
+      child: Form(
+        key: _formKey,
+        child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: targetPadding / 2),
+          children: <Widget>[
+            _buildTitleTextField(),
+            _buildDescriptionTextField(),
+            _buildPriceTextField(),
+            SizedBox(
+              height: 10.0,
             ),
-            onTap: _submitForm,
-          ),
-        ],
+            RaisedButton(
+              child: Text('Save'),
+              textColor: Colors.white,
+              onPressed: _submitForm,
+            )
+          ],
+        ),
       ),
     );
   }
