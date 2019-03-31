@@ -9,6 +9,26 @@ class ItemAdminPage extends StatelessWidget {
 
   ItemAdminPage(this.addItem, this.deleteItem);
 
+  Widget _buildSideDrawer(BuildContext context) {
+    return Drawer(
+      child: Column(
+        children: <Widget>[
+          AppBar(
+            automaticallyImplyLeading: false,
+            title: Text('Choose'),
+          ),
+          ListTile(
+            leading: Icon(Icons.shop),
+            title: Text('All items'),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/items');
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -29,23 +49,7 @@ class ItemAdminPage extends StatelessWidget {
             ],
           ),
         ),
-        drawer: Drawer(
-          child: Column(
-            children: <Widget>[
-              AppBar(
-                automaticallyImplyLeading: false,
-                title: Text('Choose'),
-              ),
-              ListTile(
-                leading: Icon(Icons.shop),
-                title: Text('All items'),
-                onTap: () {
-                  Navigator.pushReplacementNamed(context, '/items');
-                },
-              ),
-            ],
-          ),
-        ),
+        drawer: _buildSideDrawer(context),
         body: TabBarView(
           children: <Widget>[
             ItemCreatePage(addItem),
