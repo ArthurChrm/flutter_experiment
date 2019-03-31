@@ -45,11 +45,19 @@ class Items extends StatelessWidget {
                     color: Theme.of(context).accentColor,
                     borderRadius: BorderRadius.circular(5.0)),
                 child: Text(
-                  items[index]['price'].toString()+"€",
+                  items[index]['price'].toString() + "€",
                   style: TextStyle(color: Colors.white),
                 ),
               )
             ],
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.5),
+            child: Text("Paris, France"),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey, width: 1.0),
+              borderRadius: BorderRadius.circular(5.0),
+            ),
           ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
