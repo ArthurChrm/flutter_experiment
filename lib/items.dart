@@ -36,8 +36,15 @@ class Items extends StatelessWidget {
                     fontFamily: "Oswald"),
               ),
               SizedBox(width: 8.0),
-              Text(
-                items[index]['price'].toString(),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 6.0,
+                  vertical: 2.5,
+                ),
+                decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                child: Text(
+                  items[index]['price'].toString(),
+                ),
               )
             ],
           ),
