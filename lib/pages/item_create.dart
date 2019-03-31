@@ -80,9 +80,13 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
           SizedBox(
             height: 10.0,
           ),
-          RaisedButton(
-            child: Text('Save'),
-            onPressed: _submitForm,
+          GestureDetector(
+            child: Container(
+              color: Colors.green,
+              padding: EdgeInsets.all(5.0),
+              child: Text("My button"),
+            ),
+            onTap: _submitForm,
           ),
         ],
       ),
