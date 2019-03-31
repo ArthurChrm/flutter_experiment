@@ -20,6 +20,10 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
   Widget _buildTitleTextField() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Item title'),
+      validator: (String value) {
+        if (value.isEmpty) return "Title is required";
+        return null;
+      },
       onSaved: (String value) {
         setState(() {
           _title = value;
@@ -54,6 +58,8 @@ class _ItemCreatePageState extends State<ItemCreatePage> {
   }
 
   void _submitForm() {
+    if (!_formKey.currentState.validate()) return;
+
     _formKey.currentState.save();
     final Map<String, dynamic> item = {
       'title': _title,
