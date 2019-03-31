@@ -18,6 +18,7 @@ class ItemsPages extends StatelessWidget {
               title: Text('Choose'),
             ),
             ListTile(
+              leading: Icon(Icons.edit),
               title: Text('Manage item'),
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/admin');
