@@ -29,6 +29,13 @@ class ItemsPages extends StatelessWidget {
       ),
       appBar: AppBar(
         title: Text("Flutter experiment"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.favorite),
+            color: Colors.white,
+            onPressed: () {},
+          ),
+        ],
       ),
       body: ItemsManager(items),
     );

@@ -40,7 +40,7 @@ class ItemAdminPage extends StatelessWidget {
                 leading: Icon(Icons.shop),
                 title: Text('All items'),
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, '/');
+                  Navigator.pushReplacementNamed(context, '/items');
                 },
               ),
             ],
