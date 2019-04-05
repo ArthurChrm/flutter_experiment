@@ -50,7 +50,7 @@ class _AppState extends State<App> {
         '/': (BuildContext context) => AuthPage(),
         '/items': (BuildContext context) => ItemsPages(_items),
         '/admin': (BuildContext context) =>
-            ItemAdminPage(_addItem, _deleteItem),
+            ItemAdminPage(_addItem, _deleteItem, _items),
       },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');
